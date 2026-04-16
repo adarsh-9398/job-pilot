@@ -1,0 +1,35 @@
+# Job Pilot Profile Configuration
+# This is your personal identity for job evaluations and resume generation.
+
+candidate:
+  full_name: "Your Name"
+  email: "you@example.com"
+  phone: ""
+  location: "City, Country"
+  linkedin: "linkedin.com/in/yourname"
+  github: "github.com/yourname"
+
+target_roles:
+  primary:
+    - "Game Developer"
+    - "Unity Developer"
+  keywords:
+    positive:
+      - "Unity"
+      - "Godot"
+      - "Game"
+    negative:
+      - "Senior"
+      - "Lead"
+      - "Staff"
+
+narrative:
+  headline: "Your one-line professional headline"
+  superpowers:
+    - "Skill 1"
+    - "Skill 2"
+    - "Skill 3"
+
+location:
+  country: "India"
+  timezone: "IST"

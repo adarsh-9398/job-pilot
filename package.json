@@ -1,0 +1,19 @@
+{
+  "name": "job-pilot",
+  "version": "1.0.0",
+  "description": "AI-powered job search pipeline with portal scanning, resume tailoring, and application tracking",
+  "type": "module",
+  "scripts": {
+    "scan": "node src/scanner.mjs",
+    "pdf": "node src/pdf.mjs",
+    "tracker": "node src/tracker.mjs",
+    "health": "node src/health.mjs",
+    "setup": "npx playwright install chromium"
+  },
+  "author": "Adarsh Gupta",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.1",
+    "playwright": "^1.58.1"
+  }
+}

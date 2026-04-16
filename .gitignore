@@ -1,0 +1,12 @@
+node_modules/
+data/pipeline.md
+data/applications.md
+data/scan-log.tsv
+output/*.pdf
+output/*.html
+reports/*.md
+config/profile.yml
+config/portals.yml
+.env
+*.log
+.DS_Store

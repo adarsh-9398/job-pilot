@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{NAME}} — Resume</title>
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 11px;
+    line-height: 1.55;
+    color: #1a1a2e;
+    background: #fff;
+  }
+
+  .page {
+    max-width: {{PAGE_WIDTH}};
+    margin: 0 auto;
+    padding: 4px 0;
+  }
+
+  /* ── Header ── */
+  .header { margin-bottom: 16px; }
+
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .gradient-bar {
+    height: 2.5px;
+    background: linear-gradient(90deg, #1a8c7e, #7c3aed);
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 10px;
+    color: #666;
+  }
+  .contact a { color: #666; text-decoration: none; }
+  .contact .sep { color: #ccc; }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 14px; }
+
+  .section-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1a8c7e;
+    border-bottom: 1.5px solid #e8e8e8;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  /* ── Summary ── */
+  .summary {
+    font-size: 10.5px;
+    line-height: 1.65;
+    color: #333;
+  }
+
+  /* ── Skills Tags ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    font-size: 9.5px;
+    font-weight: 500;
+    color: #166d62;
+    background: #e8f5f3;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid #c5e8e3;
+  }
+
+  /* ── Experience ── */
+  .entry { margin-bottom: 12px; break-inside: avoid; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+
+  .entry-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #7c3aed;
+  }
+
+  .entry-date {
+    font-size: 10px;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .entry-role {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+  }
+
+  .entry-loc { font-size: 9.5px; color: #999; }
+
+  .entry ul { padding-left: 16px; margin-top: 4px; }
+  .entry li {
+    font-size: 10px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 3px;
+  }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 10px; break-inside: avoid; }
+
+  .project-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #7c3aed;
+  }
+
+  .project-badge {
+    font-size: 8.5px;
+    font-weight: 500;
+    color: #1a8c7e;
+    background: #e8f5f3;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 4px;
+  }
+
+  .project-desc {
+    font-size: 10px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  .project-stack {
+    font-size: 9px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* ── Education ── */
+  .edu { margin-bottom: 6px; break-inside: avoid; }
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .edu-title { font-weight: 600; font-size: 10.5px; color: #333; }
+  .edu-school { color: #7c3aed; font-weight: 500; }
+  .edu-year { font-size: 9.5px; color: #888; }
+  .edu-detail { font-size: 9.5px; color: #777; margin-top: 1px; }
+
+  /* ── Skills Grid ── */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 10px;
+    color: #555;
+  }
+  .skill-label { font-weight: 600; color: #333; }
+
+  /* ── Print ── */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>{{NAME}}</h1>
+    <div class="gradient-bar"></div>
+    <div class="contact">
+      {{CONTACT_ITEMS}}
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Professional Summary</div>
+    <div class="summary">{{SUMMARY}}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Key Skills</div>
+    <div class="tags">{{SKILL_TAGS}}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Experience</div>
+    {{EXPERIENCE}}
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Projects</div>
+    {{PROJECTS}}
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Education</div>
+    {{EDUCATION}}
+  </div>
+
+  <div class="section">
+    <div class="section-heading">Certifications</div>
+    {{CERTIFICATIONS}}
+  </div>
+
+</div>
+</body>
+</html>
