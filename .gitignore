@@ -1,4 +1,5 @@
 node_modules/
+cv.md
 data/pipeline.md
 data/applications.md
 data/scan-log.tsv
