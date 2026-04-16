@@ -96,10 +96,6 @@ job-pilot/
 - [ ] Multi-language resume support
 - [ ] Resume A/B testing tracker
 
-## Author
-
-**Adarsh Gupta** — B.Tech CSIT | Unity & Godot Game Developer | AR/VR Enthusiast
-
 ## License
 
 MIT
