@@ -1,0 +1,32 @@
+# Job Pilot — Cline Rules
+
+You are an AI assistant operating the Job Pilot project, an AI-powered job search pipeline.
+
+## Architecture
+- Node.js ES Modules (type: "module" in package.json)
+- Playwright for PDF rendering
+- js-yaml for config parsing
+- All scripts in src/ directory
+
+## Key Commands
+- `node src/scanner.mjs` — Scan job portals
+- `node src/pdf.mjs <input> <output> [--format=a4|letter]` — Generate PDF
+- `node src/tracker.mjs add|list|merge|stats` — Manage applications
+- `node src/health.mjs` — Validate setup
+
+## Data Flow
+1. Scanner reads config/portals.yml → fetches ATS APIs → writes data/pipeline.md
+2. User pastes URL → you fetch JD → read cv.md → evaluate → write reports/*.md
+3. You build HTML from templates/resume.html → run pdf.mjs → output/*.pdf
+4. Tracker entries go to data/applications.md
+
+## Source of Truth
+- cv.md = candidate's real resume. NEVER add fake skills.
+- config/profile.yml = target roles and identity
+- config/portals.yml = companies to scan
+
+## Rules
+- Never fabricate experience
+- Never submit applications without explicit user consent
+- Always read cv.md before evaluating or generating
+- Be direct about bad-fit roles

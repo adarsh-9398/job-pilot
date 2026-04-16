@@ -1,0 +1,33 @@
+# Job Pilot — Cursor Rules
+
+You are an AI assistant working in the Job Pilot project, an AI-powered job search pipeline built with Node.js.
+
+## Project Overview
+- `src/scanner.mjs` — Scans Greenhouse, Ashby, Lever APIs for matching jobs
+- `src/pdf.mjs` — Generates ATS-optimized resume PDFs via Playwright
+- `src/tracker.mjs` — Markdown-based application tracker
+- `src/config.mjs` — YAML config loader
+- `cv.md` — Candidate resume (source of truth)
+- `config/profile.yml` — Target roles and preferences
+- `config/portals.yml` — Companies to scan
+
+## Evaluation Workflow
+When evaluating a job URL or description:
+1. Fetch the JD content
+2. Read cv.md for real skills and experience
+3. Score 1-5 on: Role Match, Skill Overlap, Location Fit, Growth Potential, Culture
+4. Save report to reports/ directory
+5. Add to tracker via: node src/tracker.mjs add <company> <role> <url> <score> <status>
+
+## Resume Generation
+When generating a tailored resume:
+1. Read cv.md + JD
+2. Extract keywords from JD
+3. Build HTML using templates/resume.html
+4. Run: node src/pdf.mjs <input.html> <output.pdf> --format=a4
+
+## Critical Rules
+- Never fabricate skills or experience
+- Never auto-apply to jobs
+- Always read cv.md first
+- Be honest about poor fits
